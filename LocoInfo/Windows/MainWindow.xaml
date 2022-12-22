@@ -1,0 +1,131 @@
+﻿<Window x:Class="LocoInfo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LocoInfo"
+        mc:Ignorable="d"
+        Title="Список обточек" Height="700" Width="1200"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+
+        
+       
+
+        
+        
+        <ListView x:Name="lvEdging"
+            Grid.Row="1"
+            Grid.RowSpan="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="7" 
+            Width="1170" d:ItemsSource="{d:SampleData ItemCount=5}"
+            GridViewColumnHeader.Click ="lvEdging_Click"
+            MouseDoubleClick="lvEdging_MouseDoubleClick"      
+                  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Номер дирекции" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding DirectorateNumber}"/>
+                    <GridViewColumn Header="Дирекция" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding DepotDirectorate}"/>
+                    <GridViewColumn Header="Депо" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TypeOfTraction}"/>
+                    <GridViewColumn Header="Тип тяги" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TypeOfMovement}"/>
+                    <GridViewColumn Header="Вид движения" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding LocomotiveSeries}"/>
+                    <GridViewColumn Header="Серия" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding LocomotiveSectionNumber}"/>
+                    <GridViewColumn Header="Номер секции" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding SectionNumber}"/>
+                    <GridViewColumn Header="Дата обточки" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TurningDate}"/>
+                    <GridViewColumn Header="Группа причин" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding GroupOfReasons}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="btnGraph"
+            Background="White"
+            Height="35"
+            Width="100"
+            Content="Графики"
+            Foreground="#0058a6" 
+            Grid.Row="7"
+            Grid.Column="2"
+            />
+
+        <Button x:Name="btnHistory"
+            Background="White"
+            Height="35"
+            Width="145"
+            Content="Ист. локомотива"
+            Foreground="#0058a6"
+            Grid.Row="7"
+            Grid.Column="3"
+            Click="btnHistory_Click"          
+            />
+
+        <Button x:Name="btnSearch"
+            Background="White"
+            Height="35"
+            Width="100"
+            Content="Поиск"
+            Foreground="#0058a6"
+            Grid.Row="7"
+            Grid.Column="4"
+            Click="btnSearch_Click"
+            />
+
+        <Image Source="/Assets/excelimg.png"
+               Grid.Row="7"
+               Grid.Column="6"
+               Width="35"
+               />
+
+        
+        
+        <Button x:Name="btnInsert"
+            Background="Transparent"
+            Height="40"
+            Width="45"
+            Click="btnInsert_Click"
+            Foreground="#0058a6"
+            Grid.Row="7"
+            Grid.Column="6"
+            />
+
+        <Image Source="/Assets/refresh.png"
+               Grid.Column="6"
+               Grid.Row="0"
+               Width="30"
+               Height="30"
+               
+               />
+
+        <Button x:Name="btnRefresh"
+            Background="Transparent"
+            Height="35"
+            Width="50"
+            Click="btnRefresh_Click"
+            Grid.Row="0"
+            Grid.Column="6"
+            />
+
+       
+    </Grid>
+</Window>

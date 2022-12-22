@@ -1,0 +1,116 @@
+﻿<Window x:Class="LocoInfo.Windows.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LocoInfo.Windows"
+        mc:Ignorable="d"
+        Title="История" Height="700" Width="1200"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="locoLabel"
+            Text="Локомотив"
+            FontSize="25"
+            FontWeight="Bold"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="#0058a6"
+            />
+        <TextBlock
+            x:Name="pairLabel"
+            
+            FontSize="25"
+            FontWeight="Bold"
+            Grid.Row="0"
+            Grid.Column="3"
+            Grid.ColumnSpan="4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="#0058a6"
+            />
+
+        <ListView 
+            x:Name="lvHistory"
+            Grid.Row="1"
+            Grid.RowSpan="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="4" 
+            HorizontalAlignment="Right"
+            Width="550"
+            Margin="0 0 110 0"
+            MouseDoubleClick="lvHistory_MouseDoubleClick"
+            GridViewColumnHeader.Click ="lvHistory_Click" d:ItemsSource="{d:SampleData ItemCount=5}"
+            >
+            <ListView.View>
+                <GridView>
+                   
+                    <GridViewColumn Header="Дата обточки" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TurningDate}"/>
+                    <GridViewColumn Header="Причина" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding Reason}"/>
+                    <GridViewColumn Header="КП" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding KP}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView 
+            x:Name="lvPair"
+            Grid.Row="1"
+            Grid.RowSpan="6"
+            Grid.Column="3"
+            Grid.ColumnSpan="4" 
+            HorizontalAlignment="Left"
+            Width="550"
+            Margin="110 0 0 0" d:ItemsSource="{d:SampleData ItemCount=5}" 
+            >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Локомотив" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding SectionNumber}"/>
+                    <GridViewColumn Header="Дата обточки" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TurningDate}"/>
+                    <GridViewColumn Header="Причина" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding Reason}"/>
+                    <GridViewColumn Header="Номер места" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding SeatNumber}"/>
+                    <GridViewColumn Header="Месяц обточки" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding MonthOfTurning}"/>
+                    <GridViewColumn Header="Предприятие, производившее обточку" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding TheCompanyThatProducedTheTurning}"/>
+                    <GridViewColumn Header="Дирекция предприятия" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding DirectorateOfTheCompanyThatProducedTheTurning}"/>
+                    <GridViewColumn Header="Пробег в год, км" AutomationProperties.IsColumnHeader="True" DisplayMemberBinding="{Binding MileagePerYear}"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
+        <Button x:Name="btnPair"
+            Background="White"
+            Height="35"
+            Width="200"
+            Content="Посмотреть историю КП"
+            Foreground="#0058a6" 
+            Grid.Row="7"
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Click="btnPair_Click"
+            />
+    </Grid>
+</Window>
