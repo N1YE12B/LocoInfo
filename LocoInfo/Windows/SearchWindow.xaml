@@ -36,6 +36,8 @@
             Margin="0 0 0 15"
             />
 
+      
+
         <TextBlock
             Grid.Row="0"
             Grid.Column="1"
@@ -64,7 +66,7 @@
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            Text="Регион"
+            Text="Дирекция"
             Foreground="#0058a6"
             Margin="0 0 0 15"
             />
@@ -88,7 +90,7 @@
             Width="80"
                 
             >
-
+            <TextBlock>--Не выбрано--</TextBlock>
             <TextBlock>Средний износ</TextBlock>
             <TextBlock>Максимальный износ</TextBlock>
             <TextBlock>Пробег между обточками КП</TextBlock>
@@ -108,6 +110,9 @@
             
            
         </ComboBox>
+
+      
+
 
         <ComboBox x:Name="cmbPeriod"
             Grid.Row="0"

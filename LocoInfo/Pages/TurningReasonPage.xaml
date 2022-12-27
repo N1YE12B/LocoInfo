@@ -1,0 +1,123 @@
+﻿<Page x:Class="LocoInfo.Pages.TurningReasonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LocoInfo.Pages"
+      
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="TurningReasonPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+          
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+           
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            
+          
+        </Grid.RowDefinitions>
+
+
+        <Border
+            Grid.Row="0"
+            Grid.RowSpan="123"
+            Grid.Column="0"
+            Grid.ColumnSpan="12"
+            Background="White"
+            />
+
+        <lvc:CartesianChart
+            x:Name="Chart"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="8"
+            Grid.RowSpan="6" 
+            >
+
+            <lvc:CartesianChart.Series>
+                <lvc:ColumnSeries
+                    Title="Кол-во:"
+                    Values="{Binding Results}"
+                    Configuration="{Binding Mapper}"
+                    />
+            </lvc:CartesianChart.Series>
+
+
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis LabelsRotation="-20" Labels="{Binding Labels}" 
+                          DisableAnimations="True">
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator> 
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+
+            <!--<lvc:CartesianChart.AxisY>
+                <lvc:Axis LabelFormatter="{Binding Formatter}"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>-->
+
+        </lvc:CartesianChart>
+
+        <TextBlock
+            Grid.Row="7"  
+            Grid.Column="0"           
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="Серия локомотива"
+            FontWeight="Bold"
+            FontSize="12"
+            Foreground="#0058a6"
+          
+            />
+
+        <ComboBox x:Name="cmbSeries"
+            Grid.Row="7"         
+            Grid.Column="1"           
+            Width="110"          
+            IsEditable="True"      
+                  SelectionChanged="cmbSeries_SelectionChanged"
+            />
+
+        <TextBlock
+            Grid.Row="7"  
+            Grid.Column="3"           
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="Предприятие, производившее обточку"
+            TextWrapping="Wrap"
+            FontWeight="Bold"
+            FontSize="12"
+            Foreground="#0058a6"
+          
+            />
+        
+        <ComboBox x:Name="cmbSLD"
+            Grid.Row="7"          
+            Grid.Column="4"      
+            Width="110"        
+            IsEditable="True"   
+                  SelectionChanged="cmbSLD_SelectionChanged"
+            />
+
+    </Grid>
+</Page>

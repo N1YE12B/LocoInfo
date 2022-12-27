@@ -67,6 +67,8 @@
             Foreground="#0058a6" 
             Grid.Row="7"
             Grid.Column="2"
+                IsEnabled="False"
+                Click="btnGraph_Click"
             />
 
         <Button x:Name="btnHistory"
@@ -127,5 +129,23 @@
             />
 
        
+        <Image Source="/Assets/export.png" 
+               Grid.Column="6"
+               Grid.Row="0"
+               Width="35"
+               Height="35"
+               HorizontalAlignment="Left"
+               />
+
+        <Button x:Name="btnExport"
+            Background="Transparent"
+            Grid.Column="6"
+               Grid.Row="0"
+               Width="35"
+               Height="36"
+               HorizontalAlignment="Left"
+                Click="btnExport_Click"
+            />
+
     </Grid>
 </Window>
